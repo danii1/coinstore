@@ -1,0 +1,15 @@
+<template name="new">
+  {{#autoForm collection="Items" id="insertForm" type="insert"}}
+    <fieldset>
+        <legend>New item</legend>
+        {{> afQuickField name='title'}}
+        {{> afQuickField name='type' options='allowed'}}
+        {{> afQuickField name='description' rows=10}}
+        {{> afQuickField name='price' step=0.00000001}}
+        {{> afQuickField name='currency'}}
+        {{> afQuickField name='quantity'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a href="{{pathFor 'adminItems'}}" class="btn btn-default">Cancel</a>
+  {{/autoForm}}
+</template>

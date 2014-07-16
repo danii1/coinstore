@@ -1,0 +1,13 @@
+{
+  "startup": {
+    "adminUser": {
+      "email": "admin@admin.com",
+      "password": "123456"
+    }
+  },
+  "gateways": {
+    "ccex": {
+      "merchantId": "yourMerchantId"
+    }
+  }
+}

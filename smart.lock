@@ -1,0 +1,77 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "less-bootstrap-3": {},
+      "font-awesome-4-less": {},
+      "iron-router": {},
+      "less-fontawesome-4": {},
+      "accounts-ui-bootstrap-3": {},
+      "autoform": {},
+      "roles": {},
+      "cron": {}
+    },
+    "packages": {
+      "less-bootstrap-3": {
+        "git": "https://github.com/DerMambo/less-bootstrap-3.git",
+        "tag": "v0.0.2",
+        "commit": "b5010b2ff9e9ae6b0e6e13eb0f6c81c9cb84373e"
+      },
+      "font-awesome-4-less": {
+        "git": "https://github.com/svub/fontawesome4-less.git",
+        "tag": "v4.4.0",
+        "commit": "250d2336a217c18eb70e9d074784a7db3ca38472"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
+      },
+      "less-fontawesome-4": {
+        "git": "https://github.com/DerMambo/less-fontawesome-4.git",
+        "tag": "v0.0.4",
+        "commit": "79fdf3d3e90fdb4635878b34f545965014cd4ea8"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
+      },
+      "autoform": {
+        "git": "https://github.com/aldeed/meteor-autoform.git",
+        "tag": "v0.14.0",
+        "commit": "30de032833052ea61e9d37bca5523264309d4478"
+      },
+      "roles": {
+        "git": "https://github.com/alanning/meteor-roles.git",
+        "tag": "v1.2.10",
+        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
+      },
+      "cron": {
+        "git": "https://github.com/alexsuslov/Meteor.cron.git",
+        "tag": "v0.0.1",
+        "commit": "5216d14472fee7b692e8371aadc9f35f54ba9bb0"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
+      },
+      "simple-schema": {
+        "git": "https://github.com/aldeed/meteor-simple-schema.git",
+        "tag": "v0.6.0",
+        "commit": "418ec496612fb2afc853e342f0d2269b6674a2fe"
+      },
+      "collection2": {
+        "git": "https://github.com/aldeed/meteor-collection2.git",
+        "tag": "v0.4.2",
+        "commit": "4ff4b707bec8be434919730bf101325adb215444"
+      },
+      "moment": {
+        "git": "https://github.com/acreeger/meteor-moment.git",
+        "tag": "v2.6.0",
+        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+      }
+    }
+  }
+}

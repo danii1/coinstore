@@ -1,0 +1,30 @@
+<template name="adminItems">
+  <h1>Items</h1>
+  <a href="{{pathFor 'adminItemNew'}}" class="btn btn-primary">Add new item</a>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Item type</td>
+        <td>Price</td>
+        <td>Available quantity</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each items}}
+        <tr>
+          <td><a href="{{pathFor 'adminItem'}}">{{title}}</a></td>
+          <td>{{type}}</td>
+          <td>{{price}} {{currency}}</td>
+          <td>{{quantity}}</td>
+          <td>
+            {{#autoForm collection='Items' doc=this type="remove"}}
+              <button type="submit" class="btn btn-danger">Delete</button>
+            {{/autoForm}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

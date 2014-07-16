@@ -1,0 +1,35 @@
+<template name="adminPurchases">
+  <h1>Purchases</h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <td>Item</td>
+        <td>Price</td>
+        <td>Status</td>
+        <td>Created at</td>
+        <td>Updated at</td>
+        <td>User email</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each purchases}}
+        <tr>
+          <td>
+            {{#with purchaseItem}}
+              <a href="{{pathFor 'item'}}">{{title}}</a>
+            {{/with}}
+          </td>
+          <td>{{expected_payment_amount}} {{expected_payment_currency}}</td>
+          <td>{{status}}</td>
+          <td>{{created_at}}</td>
+          <td>{{updated_at}}</td>
+          <td>
+            {{#with purchaseUserEmail}}
+              <a href="mailto:{{this}}">{{this}}</a>
+            {{/with}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>

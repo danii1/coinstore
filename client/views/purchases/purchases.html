@@ -1,0 +1,73 @@
+<template name="purchases">
+  <h1>My purchases</h1>
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="active"><a href="#awaiting-payment" role="tab" data-toggle="tab">Waiting for payment</a></li>
+    <li><a href="#completed" role="tab" data-toggle="tab">Completed</a></li>
+    <li><a href="#cancelled" role="tab" data-toggle="tab">Cancelled</a></li>
+  </ul>
+
+  <div id="user-purchases" class="tab-content">
+    <div class="tab-pane active" id="awaiting-payment">
+      <table class="table table-striped">
+        <tbody>
+          {{#each activePurchases}}
+            <tr>
+              <td>{{created_at}}</td>
+              <td>
+                {{#with purchaseItem}}
+                  <a href="{{pathFor 'item'}}">{{title}}</a>
+                {{/with}}
+              </td>
+              <td><i class="fa fa-spinner fa-spin"></i> {{expected_payment_amount}} {{expected_payment_currency}}</td>
+              <td><button class="btn btn-danger" id="cancelPurchase">Cancel purchase</button></td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="tab-pane" id="completed">
+      <div class="tab-pane" id="cancelled-purchases">
+        <table class="table table-striped">
+          <tbody>
+            {{#each completedPurchases}}
+              <tr>
+                <td>{{updated_at}}</td>
+                <td>
+                  {{#with purchaseItem}}
+                    <a href="{{pathFor 'item'}}">{{title}}</a>
+                  {{/with}}
+                </td>
+                <td>{{expected_payment_amount}} {{expected_payment_currency}}</td>
+                <td>
+                  <a href="{{pathFor 'purchase'}}" class="btn btn-info">View purchase</a>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="tab-pane" id="cancelled">
+      <div class="tab-pane" id="cancelled-purchases">
+        <table class="table table-striped">
+          <tbody>
+            {{#each cancelledPurchases}}
+              <tr>
+                <td>{{updated_at}}</td>
+                <td>
+                  {{#with purchaseItem}}
+                    <a href="{{pathFor 'item'}}">{{title}}</a>
+                  {{/with}}
+                </td>
+                <td>{{expected_payment_amount}} {{expected_payment_currency}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+</template>
