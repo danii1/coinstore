@@ -1,5 +1,7 @@
 Router.configure
   layoutTemplate: 'layout'
+  loadingTemplate: 'loading'
+  notFoundTemplate: 'notFound'
 
 mustBeAdmin = (pause) ->
   currentUser = Meteor.user()
@@ -14,6 +16,7 @@ mustBeSignedIn = (pause) ->
 
 Router.onBeforeAction(mustBeAdmin, {only: ['adminItems', 'adminItem', 'adminItemNew', 'adminPurchases']})
 Router.onBeforeAction(mustBeSignedIn, {only: ['purchases', 'purchase']})
+Router.onBeforeAction 'loading'
 
 Router.map ->
   @route('storefront', {

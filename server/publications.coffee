@@ -1,8 +1,8 @@
 Meteor.publish 'items', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
-    return Items.find({}, { fields: {title: true, quantity: true, type: true, price:true, currency:true}})
+    return Items.find({}, { fields: {title: true, quantity: true, type: true, price: true, currency: true}})
   else
-    return Items.find({quantity: { $gt: 0 }}, { fields: {title: true, quantity: true}} )
+    return Items.find({quantity: { $gt: 0 }}, { fields: {title: true, quantity: true, price: true, currency: true}} )
 
 Meteor.publish 'itemDetail', (itemId) ->
   return Items.find(itemId)

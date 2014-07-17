@@ -1,8 +1,14 @@
 <template name="storefront">
-  <h1>Items</h1>
-  <ul>
+  <div class="row">
     {{#each items}}
-      <li><a href="{{pathFor 'item'}}">{{title}}</a></li>
+      <div class="{{itemClasses}} item-thumb">
+        <a href="{{pathFor 'item'}}">
+          <img class="img-responsive" src="/images/empty_image.png">
+        </a>
+        <div class="title"><a href="{{pathFor 'item'}}">{{title}}</a></div>
+        <span class="price">{{price}} {{currency}}</span>
+
+      </div>
     {{/each}}
-  </ul>
+  </div>
 </template>

@@ -1,3 +1,5 @@
+// main styles
+
 .purchaseItem i {
   margin-right: 10px;
 }
@@ -6,12 +8,36 @@
   color: @label-danger-bg;
 }
 
+.item-thumb {
+  margin-bottom: @grid-gutter-width;
+
+  .title {
+    padding: 5px 0;
+
+    a:hover {
+      text-decoration: none
+    }
+  }
+
+  .price {
+    font-weight: bold;
+  }
+}
+
+#user-purchases td {
+  vertical-align: middle!important;
+}
+
+
 // admin styles
 textarea.description {
   width: 100%;
 }
 
-// user purchases
-#user-purchases td {
-  vertical-align: middle!important;
+.loading {
+  display: none;
+  position: fixed;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
 }
