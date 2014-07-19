@@ -19,7 +19,7 @@
           <td>{{price}} {{currency}}</td>
           <td>{{quantity}}</td>
           <td>
-            {{#autoForm collection='Items' doc=this type="remove"}}
+            {{#autoForm id=formId collection='Items' doc=this type='remove'}}
               <button type="submit" class="btn btn-danger">Delete</button>
             {{/autoForm}}
           </td>

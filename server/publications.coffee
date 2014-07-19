@@ -1,11 +1,14 @@
 Meteor.publish 'items', ->
+  collectionFilter = {quantity: { $gt: 0 }}
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
-    return Items.find({}, { fields: {title: true, quantity: true, type: true, price: true, currency: true}})
-  else
-    return Items.find({quantity: { $gt: 0 }}, { fields: {title: true, quantity: true, price: true, currency: true}} )
+    collectionFilter = {}
+  return Items.find(collectionFilter, { fields: {title: true, titleImage: true, quantity: true, type: true, price: true, currency: true}})
 
 Meteor.publish 'itemDetail', (itemId) ->
   return Items.find(itemId)
+
+Meteor.publish 'images', ->
+  return Images.find() # debug
 
 Meteor.publish 'users', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])

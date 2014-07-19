@@ -3,7 +3,11 @@
     {{#each items}}
       <div class="{{itemClasses}} item-thumb">
         <a href="{{pathFor 'item'}}">
-          <img class="img-responsive" src="/images/empty_image.png">
+          {{#if titleImage}}
+            <img class="img-responsive" src="{{titleImage.url store='titleImages'}}">
+          {{else}}
+            <img class="img-responsive" src="/images/empty_image.png">
+          {{/if}}
         </a>
         <div class="title"><a href="{{pathFor 'item'}}">{{title}}</a></div>
         <span class="price">{{price}} {{currency}}</span>

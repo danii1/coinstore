@@ -3,7 +3,10 @@
     <fieldset>
         <legend>New item</legend>
         {{> afQuickField name='title'}}
-        <input type="file" id="titleImage">
+        <div class="form-group">
+          {{> afFieldLabel name='titleImage'}}
+          <input type="file" id="titleImage">
+        </div>
         {{> afQuickField name='type' options='allowed'}}
         {{> afQuickField name='description' rows=10}}
         {{> afQuickField name='price' step=0.00000001}}

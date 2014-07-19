@@ -1,8 +1,16 @@
 @Items = new Meteor.Collection('items',
   schema:
     title:
-      type: String,
+      type: String
       label: 'Title'
+    titleImage:
+      type: FS.File
+      label: 'Title image'
+      optional: true
+      blackbox: true
+    titleImageUrl:
+      type: String
+      optional: true
     type:
       type: String
       label: 'Item type'

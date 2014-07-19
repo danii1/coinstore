@@ -3,6 +3,13 @@
     <fieldset>
         <legend>Edit item</legend>
         {{> afQuickField name='title'}}
+        <div class="form-group">
+          {{> afFieldLabel name='titleImage'}}
+          <input type="file" id="titleImage">
+          {{#if titleImage}}
+            <a href="{{titleImage.url store='titleImages'}}" target="_blank">Current image</a>
+          {{/if}}
+        </div>
         {{> afQuickField name='type' options='allowed'}}
         {{> afQuickField name='description' rows=10}}
         {{> afQuickField name='price' step=0.00000001}}
