@@ -7,10 +7,13 @@
       "iron-router": {},
       "less-fontawesome-4": {},
       "accounts-ui-bootstrap-3": {},
-      "autoform": {},
+      "autoform": {
+        "version": "0.14.0"
+      },
       "roles": {},
       "cron": {},
-      "collectionFS": {}
+      "collectionFS": {},
+      "smart-publish": {}
     },
     "packages": {
       "less-bootstrap-3": {
@@ -57,6 +60,11 @@
         "git": "https://github.com/CollectionFS/Meteor-CollectionFS.git",
         "tag": "v0.4.8",
         "commit": "fea890b1e27799ccc9f71046748fb23a84330a16"
+      },
+      "smart-publish": {
+        "git": "https://github.com/yeputons/meteor-smart-publish.git",
+        "tag": "v0.1.4",
+        "commit": "9b0279927fa4f8042f8f56ba475ce9737ceaa8cf"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

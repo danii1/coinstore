@@ -1,14 +1,17 @@
-Meteor.publish 'items', ->
+# get titleImage for item to display in list until we find a sane way to cache titleImageUrl
+Meteor.smartPublish 'items', ->
+  this.addDependency('items', 'titleImage', (item) ->
+    if item.titleImage?
+      return [ Images.find(item.titleImage._id) ]
+    return []
+  )
+
   collectionFilter = {quantity: { $gt: 0 }}
-  if @userId? and Roles.userIsInRole(@userId, ['administrator'])
-    collectionFilter = {}
+  collectionFilter = {} if @userId? and Roles.userIsInRole(@userId, ['administrator'])
   return Items.find(collectionFilter, { fields: {title: true, titleImage: true, quantity: true, type: true, price: true, currency: true}})
 
 Meteor.publish 'itemDetail', (itemId) ->
   return Items.find(itemId)
-
-Meteor.publish 'images', ->
-  return Images.find() # debug
 
 Meteor.publish 'users', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])

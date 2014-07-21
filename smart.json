@@ -5,9 +5,12 @@
     "iron-router": {},
     "less-fontawesome-4": {},
     "accounts-ui-bootstrap-3": {},
-    "autoform": {},
+    "autoform": {
+      "version": "0.14.0"
+    },
     "roles": {},
     "cron": {},
-    "collectionFS": {}
+    "collectionFS": {},
+    "smart-publish": {}
   }
 }
