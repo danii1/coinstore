@@ -1,6 +1,9 @@
 Template.item.inStock = ->
   @quantity > 0
 
+Template.item.rendered = ->
+  $('.image-link').magnificPopup({type:'image'})
+
 Template.item.events({
   'click button.purchaseItem': (event) ->
     event.preventDefault()

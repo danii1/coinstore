@@ -1,19 +1,30 @@
 <template name="item">
-  <h1>{{title}}</h1>
-  <div class="description">
-    {{#markdown}}{{description}}{{/markdown}}
+  <div class="item-details">
+    <div class="col-md-4">
+      {{#if titleImage}}
+        <a class="image-link" href="{{titleImage.url store='fullImages' auth=false}}"><img class="img-responsive" src="{{titleImage.url store='titleImages' auth=false}}"></a>
+      {{else}}
+        <img class="img-responsive" src="/images/empty_image.png">
+      {{/if}}
+    </div>
+    <div class="col-md-8">
+      <h1>{{title}}</h1>
+      <div class="description">
+        {{#markdown}}{{description}}{{/markdown}}
+      </div>
+      <p class="price">
+        Price: <strong>{{price}} {{currency}}</strong>
+      </p>
+      {{#if inStock}}
+        {{#if currentUser}}
+          <button class="btn btn-primary purchaseItem"><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
+        {{else}}
+          <button class="btn btn-primary purchaseItem" disabled><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
+          <span class="attention">You need to sign in to be able to purchase this item</span>
+        {{/if}}
+      {{else}}
+        <button class="btn btn-danger" disabled>Out of stock</button>
+      {{/if}}
+    </div>
   </div>
-  <p>
-    Price: {{price}} {{currency}}
-  </p>
-  {{#if inStock}}
-    {{#if currentUser}}
-      <button class="btn btn-primary purchaseItem"><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
-    {{else}}
-      <button class="btn btn-primary purchaseItem" disabled><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
-      <span class="attention">You need to sign in to be able to purchase this item</span>
-    {{/if}}
-  {{else}}
-    <button class="btn btn-danger" disabled>Out of stock</button>
-  {{/if}}
 </template>

@@ -36,6 +36,9 @@ thumbImagesStore = new FS.Store.FileSystem('thumbImages', {
 
 @Images = new FS.Collection('images', {
   stores: [fullImagesStore, thumbImagesStore, titleImagesStore]
+  httpHeaders: [
+    ['Cache-Control', 'public, max-age=31536000'] # doesn't really work
+  ]
   filter: {
     allow: {
       contentTypes: ['image/*']
