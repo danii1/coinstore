@@ -7,7 +7,7 @@
           {{> afFieldLabel name='titleImage'}}
           <input type="file" id="titleImage">
           {{#if titleImage}}
-            <a href="{{titleImage.url store='titleImages'}}" target="_blank">Current image</a>
+            <a class="image-link" href="{{titleImage.url store='titleImages' auth=false}}">Current image</a>
           {{/if}}
         </div>
         {{> afQuickField name='type' options='allowed'}}

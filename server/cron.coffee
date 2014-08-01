@@ -1,15 +1,14 @@
 expireUnpaidPurchases = () ->
   #expire unpaid purchases older than 4 hours
   expirationTime = new Date((new Date()) - 1000*60*60*4)
-  Purchases.update({
+  expiredPurchases = Purchases.find({
     created_at: { $lt: expirationTime }
     status:'awaiting_payment'
-  }, {
-    $set: {
-      status: 'cancelled'
-      updated_at: new Date()
-    }
-  })
+  },{ fields: {_id: true} })
+
+  expiredPurchases.forEach (purchase) ->
+    Meteor.call 'cancelPurchase', purchase._id, (err, result) ->
+      console.log err if err?
 
 # only basic cron syntax is supported, refer to http://atmospherejs.com/package/cron
 cron = new Meteor.Cron( {

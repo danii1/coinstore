@@ -20,15 +20,18 @@ Meteor.startup (->
 
 Meteor.methods
   cancelPurchase: (purchaseId) ->
-    console.log 'cancelPurchase called', purchaseId
+    #console.log 'cancelPurchase called', purchaseId
     purchase = Purchases.findOne(purchaseId)
-    if purchase? and purchase.status != 'paid'
+    if purchase? and purchase.status != 'paid' and purchase.status != 'cancelled'
       Purchases.update(purchaseId, {
         $set: {
           status: 'cancelled'
           updated_at: new Date()
         }
       })
+
+      Items.update(purchase.item_id, {$inc: {quantity: 1}} )
+
 
   # use server side method to not reveal merchant id
   purchaseItem: (id) ->

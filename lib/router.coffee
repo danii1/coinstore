@@ -16,7 +16,7 @@ mustBeSignedIn = (pause) ->
 
 Router.onBeforeAction(mustBeAdmin, {only: ['adminItems', 'adminItem', 'adminItemNew', 'adminPurchases']})
 Router.onBeforeAction(mustBeSignedIn, {only: ['purchases', 'purchase']})
-Router.onBeforeAction 'loading'
+Router.onBeforeAction('loading', {except: ['purchaseReturnUrl', 'purchaseComplete']} )
 
 Router.map ->
   @route('storefront', {

@@ -1,7 +1,4 @@
-Template.edit.helpers
-  imageUrl: ->
-    console.log 'imageUrl called, real value', @titleImageUrl
-    if @titleImage
-      return @titleImage.getFileRecord().url({store: 'titleImages'})
+Template.edit.rendered = ->
+  $('.image-link').magnificPopup({type:'image'})
 
-    return null
+Template.edit.helpers

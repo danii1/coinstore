@@ -3,7 +3,6 @@ AutoForm.hooks({
     onSubmit: (insertDoc, updateDoc, currentDoc) ->
       file = $('#titleImage').get(0).files[0]
       if file?
-        console.log 'file', file
         image = Images.insert(file)
         insertDoc.titleImage = image
       return true
