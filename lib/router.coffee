@@ -41,6 +41,8 @@ Router.map ->
   })
   @route('purchase', {
     path: '/purchases/:_id'
+    waitOn: ->
+      Meteor.subscribe('purchaseDetails', @params._id)    
     data: ->
       return Purchases.findOne(@params._id)
     onAfterAction: ->

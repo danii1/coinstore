@@ -8,10 +8,19 @@ Meteor.smartPublish 'items', ->
 
   collectionFilter = {quantity: { $gt: 0 }}
   collectionFilter = {} if @userId? and Roles.userIsInRole(@userId, ['administrator'])
-  return Items.find(collectionFilter, { fields: {title: true, titleImage: true, quantity: true, type: true, price: true, currency: true}})
+  return Items.find(collectionFilter, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, price: 1, currency: 1}})
 
-Meteor.publish 'itemDetail', (itemId) ->
-  return Items.find(itemId)
+Meteor.smartPublish 'itemDetail', (itemId) ->
+  if @userId? and Roles.userIsInRole(@userId, ['administrator'])
+    this.addDependency('items', 'deliveryContent', (item) ->
+      if item.deliveryContent?
+        return [ DeliveryContent.find(item.deliveryContent._id) ]
+      return []
+    )
+
+    return Items.find(itemId)
+  else
+    return Items.find(itemId, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, description: 1, price: 1, currency: 1, quantity: 1}})
 
 Meteor.publish 'users', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
@@ -25,3 +34,16 @@ Meteor.publish 'purchases', ->
     else
       return Purchases.find({user_id: @userId})
   return null
+
+Meteor.smartPublish 'purchaseDetails', (purchaseId) ->
+  this.addDependency('purchases', 'item_id', (purchase) ->
+    if purchase.status=='paid' and purchase.item_id?
+      return [ Items.find(purchase.item_id, { fields: {deliveryType: 1, deliveryContent: 1}}) ]
+    return []
+  )
+  this.addDependency('items', 'deliveryContent', (item) ->
+    if item.deliveryContent?
+      return [ DeliveryContent.find(item.deliveryContent._id) ]
+    return []
+  )
+  return Purchases.find({_id: purchaseId, user_id: @userId})

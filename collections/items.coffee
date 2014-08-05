@@ -31,6 +31,15 @@
       label: 'Quantity'
       min: 0
       index: true
+    deliveryType:
+      type: String
+      label: 'Delivery type'
+      allowedValues: ['protected_download']
+    deliveryContent:
+      type: FS.File
+      label: 'Protected file'
+      optional: true
+      blackbox: true
 )
 
 @Items.allow({

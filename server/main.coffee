@@ -11,6 +11,7 @@ Meteor.startup (->
           price: '0.0001'
           currency: 'BTC'
           quantity: 9999
+          deliveryType: 'protected_download'
       })
 
   if Meteor.users.find().count() == 0 and (Meteor.settings.startup.adminUser?)
@@ -19,6 +20,16 @@ Meteor.startup (->
 )
 
 Meteor.methods
+  changeTitleImage: (docId, image) ->
+    user = Meteor.user()
+    return unless user? and Roles.userIsInRole(user, ['administrator'])?
+    Items.update(docId, { $set: { titleImage: image } })
+
+  changeDeliveryContent: (docId, file) ->
+    user = Meteor.user()
+    return unless user? and Roles.userIsInRole(user, ['administrator'])?
+    Items.update(docId, { $set: { deliveryContent: file } })
+
   cancelPurchase: (purchaseId) ->
     #console.log 'cancelPurchase called', purchaseId
     purchase = Purchases.findOne(purchaseId)

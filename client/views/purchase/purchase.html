@@ -1,15 +1,14 @@
 <template name="purchase">
-  <h1>{{_id}}</h1>
+  <h1>Purchase details</h1>
   <p>
-    Created at: {{created_at}}
+    Item: {{purchaseItem.title}}
   </p>
+  {{#if hasBeenPurchased}}
   <p>
-    Updated at: {{updated_at}}
+    Purchase date: {{updated_at}}
   </p>
-  <p>
-    Item: {{item_id}}
-  </p>
-  <p>
-    Status: {{status}}
-  </p>
+  {{/if}}
+  {{#if displayDownloadLink}}
+    <a href="{{purchaseItem.deliveryContent.url download=true}}" target="_blank" class="btn btn-primary button-with-icon"><i class="fa fa-download"></i>Download</a>
+  {{/if}}
 </template>

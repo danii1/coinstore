@@ -17,9 +17,9 @@
       </p>
       {{#if inStock}}
         {{#if currentUser}}
-          <button class="btn btn-primary purchaseItem"><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
+          <button class="btn btn-primary button-with-icon purchaseItem"><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
         {{else}}
-          <button class="btn btn-primary purchaseItem" disabled><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
+          <button class="btn btn-primary button-with-icon purchaseItem" disabled><i class="fa fa-shopping-cart"></i>Proceed to checkout</button>
           <span class="attention">You need to sign in to be able to purchase this item</span>
         {{/if}}
       {{else}}

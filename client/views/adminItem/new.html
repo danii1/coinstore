@@ -12,6 +12,11 @@
         {{> afQuickField name='price' step=0.00000001}}
         {{> afQuickField name='currency'}}
         {{> afQuickField name='quantity'}}
+        {{> afQuickField name='deliveryType' options='allowed'}}
+        <div class="form-group">
+          {{> afFieldLabel name='deliveryContent'}}
+          <input type="file" id="deliveryContent">
+        </div>
     </fieldset>
     <button type="submit" class="btn btn-primary">Create</button>
     <a href="{{pathFor 'adminItems'}}" class="btn btn-default">Cancel</a>
