@@ -10,7 +10,7 @@ Meteor.smartPublish 'items', ->
   collectionFilter = {} if @userId? and Roles.userIsInRole(@userId, ['administrator'])
   return Items.find(collectionFilter, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, price: 1, currency: 1}})
 
-Meteor.smartPublish 'itemDetail', (itemId) ->
+Meteor.smartPublish 'itemDetails', (itemId) ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
     this.addDependency('items', 'deliveryContent', (item) ->
       if item.deliveryContent?

@@ -3,4 +3,4 @@ Handlebars.registerHelper 'userIsAdmin', ->
   return currentUser? and Roles.userIsInRole(currentUser._id, ['administrator'])
 
 Handlebars.registerHelper 'storeName', ->
-  storeName
+  Meteor.settings.public.storeName

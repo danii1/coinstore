@@ -1,7 +1,7 @@
 <template name="purchase">
   <h1>Purchase details</h1>
   <p>
-    Item: {{purchaseItem.title}}
+    Item: <a href="{{pathFor 'item' _id=item_id}}">{{purchaseItem.title}}</a>
   </p>
   {{#if hasBeenPurchased}}
   <p>

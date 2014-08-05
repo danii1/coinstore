@@ -1,4 +1,8 @@
 {
+  "public": {
+    "storeName": "CoinStore",
+    "itemsInRow": 4
+  },
   "startup": {
     "adminUser": {
       "email": "admin@admin.com",

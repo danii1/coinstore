@@ -10,6 +10,6 @@
 
 @setTitle = (title) ->
   if title?
-    document.title = title + ' - ' + @storeName
+    document.title = title + ' - ' + Meteor.settings.public.storeName
   else
-    document.title = @storeName
+    document.title = Meteor.settings.public.storeName

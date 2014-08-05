@@ -27,7 +27,7 @@ Router.map ->
   @route('item', {
     path: '/items/:_id'
     waitOn: ->
-      Meteor.subscribe('itemDetail', @params._id)
+      Meteor.subscribe('itemDetails', @params._id)
     data: ->
       return Items.findOne(@params._id)
     onAfterAction: ->
@@ -42,11 +42,11 @@ Router.map ->
   @route('purchase', {
     path: '/purchases/:_id'
     waitOn: ->
-      Meteor.subscribe('purchaseDetails', @params._id)    
+      Meteor.subscribe('purchaseDetails', @params._id)
     data: ->
       return Purchases.findOne(@params._id)
     onAfterAction: ->
-      setTitle('Purchase')
+      setTitle('Purchase details')
   })
   @route('adminItems', {
     path: '/admin/items'
