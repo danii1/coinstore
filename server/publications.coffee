@@ -25,7 +25,7 @@ Meteor.smartPublish 'itemDetails', (itemId) ->
 Meteor.publish 'users', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
     return Meteor.users.find()
-  return null
+  return []
 
 Meteor.publish 'purchases', ->
   if @userId?
@@ -33,7 +33,7 @@ Meteor.publish 'purchases', ->
       return Purchases.find()
     else
       return Purchases.find({user_id: @userId})
-  return null
+  return []
 
 Meteor.smartPublish 'purchaseDetails', (purchaseId) ->
   this.addDependency('purchases', 'item_id', (purchase) ->
