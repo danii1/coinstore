@@ -22,16 +22,6 @@
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <ul class="nav navbar-nav">
-            {{#if currentUser}}
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My account <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="{{pathFor 'purchases'}}">My purchases</a></li>
-                </ul>
-              </li>
-            {{/if}}
-          </ul>
           {{> loginButtons }}
         </ul>
       </div>
