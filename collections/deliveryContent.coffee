@@ -1,5 +1,5 @@
 @DeliveryContent = new FS.Collection('deliveryContent', {
-  stores: [new FS.Store.FileSystem('deliveryContent', {path: '~/coinstore/uploads/delivery_content'})]
+  stores: [new FS.Store.FileSystem('deliveryContent', {path: Meteor.settings.public.storageDir + '/delivery_content'})]
 })
 
 @DeliveryContent.allow({

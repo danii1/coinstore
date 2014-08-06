@@ -1,5 +1,5 @@
 titleImagesStore = new FS.Store.FileSystem('titleImages', {
-  path: '~/coinstore/uploads/title_images'
+  path: Meteor.settings.public.storageDir + '/title_images'
   transformWrite: (fileObj, readStream, writeStream) ->
     transformer = gm(readStream, fileObj.name())
     transformer.size { bufferStream: true }, (error, result) ->
@@ -19,7 +19,7 @@ titleImagesStore = new FS.Store.FileSystem('titleImages', {
 })
 
 fullImagesStore = new FS.Store.FileSystem('fullImages', {
-  path: '~/coinstore/uploads/full_images'
+  path: Meteor.settings.public.storageDir + '/full_images'
   transformWrite: (fileObj, readStream, writeStream) ->
     # downsize image
     gm(readStream, fileObj.name()).resize('1200', '1200').stream().pipe(writeStream)
@@ -27,7 +27,7 @@ fullImagesStore = new FS.Store.FileSystem('fullImages', {
 })
 
 thumbImagesStore = new FS.Store.FileSystem('thumbImages', {
-  path: '~/coinstore/uploads/thumb_images'
+  path: Meteor.settings.public.storageDir + '/thumb_images'
   transformWrite: (fileObj, readStream, writeStream) ->
     gm(readStream, fileObj.name()).resize('100', '100').stream().pipe(writeStream)
     return

@@ -1,7 +1,8 @@
 {
   "public": {
     "storeName": "CoinStore",
-    "itemsInRow": 4
+    "itemsInRow": 4,
+    "storageDir": "/opt/coinstore_uploads"
   },
   "startup": {
     "adminUser": {

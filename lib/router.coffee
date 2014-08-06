@@ -62,7 +62,7 @@ Router.map ->
     path: '/admin/items/:_id/edit'
     template: 'edit'
     waitOn: ->
-      return Meteor.subscribe('itemDetail', @params._id)
+      return Meteor.subscribe('itemDetails', @params._id)
     data: ->
       return Items.findOne(@params._id)
     onAfterAction: ->
