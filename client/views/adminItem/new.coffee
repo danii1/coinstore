@@ -1,3 +1,10 @@
+Template.new.helpers
+  currencies: ->
+    gatewayCurrencies = Currencies.findOne({gateway: 'ccex'})
+    if gatewayCurrencies?
+      return gatewayCurrencies.currencies.map (c) -> { label: c, value: c }
+    return []
+
 AutoForm.hooks({
   insertForm:
     before:

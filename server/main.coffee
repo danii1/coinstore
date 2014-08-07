@@ -1,6 +1,8 @@
 Meteor.startup (->
   # code to run on server at startup
 
+  Meteor.call 'populateAvailableCurrencies'
+
   # make test item if it's a new database
   if Items.find().count() == 0
     Items.insert({
@@ -19,6 +21,17 @@ Meteor.startup (->
 )
 
 Meteor.methods
+  populateAvailableCurrencies: () ->
+    url = 'https://c-cex.com/t/pairs.json'
+    response = HTTP.call('GET',url)
+    if response? and response.content?
+      result = JSON.parse(response.content)
+      pairs = _.reject result.pairs, (pair) -> pair.indexOf('usd') != -1
+      currencies = pairs.map (pair) -> pair.split('-', 1)[0].toUpperCase()
+      currencies.unshift 'BTC'
+      Currencies.upsert({gateway: 'ccex'}, {gateway: 'ccex', currencies: currencies})
+    return
+
   changeTitleImage: (docId, image) ->
     user = Meteor.user()
     return unless user? and Roles.userIsInRole(user, ['administrator'])?

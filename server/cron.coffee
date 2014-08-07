@@ -10,8 +10,14 @@ expireUnpaidPurchases = () ->
     Meteor.call 'cancelPurchase', purchase._id, (err, result) ->
       console.log err if err?
 
+updateGatewayCurrencies = () ->
+  #check gateway for available currencies
+  Meteor.call 'populateAvailableCurrencies', (err, result) ->
+    console.log err if err?
+
 # only basic cron syntax is supported, refer to http://atmospherejs.com/package/cron
 cron = new Meteor.Cron( {
   events:
     "0 * * * *" : expireUnpaidPurchases
+    "0 * * * *" : updateGatewayCurrencies
 })

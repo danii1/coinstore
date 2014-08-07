@@ -27,6 +27,11 @@ Meteor.publish 'users', ->
     return Meteor.users.find()
   return []
 
+Meteor.publish 'currencies', ->
+  if Roles.userIsInRole(@userId, ['administrator'])
+    return Currencies.find()
+  return []
+
 Meteor.publish 'purchases', ->
   if @userId?
     if Roles.userIsInRole(@userId, ['administrator'])
@@ -34,6 +39,7 @@ Meteor.publish 'purchases', ->
     else
       return Purchases.find({user_id: @userId})
   return []
+
 
 Meteor.smartPublish 'purchaseDetails', (purchaseId) ->
   this.addDependency('purchases', 'item_id', (purchase) ->
