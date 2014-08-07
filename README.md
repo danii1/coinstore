@@ -4,6 +4,6 @@ CoinStore is a lightweight eCommerce platform with cryptocurrency support. It al
 
 ## Donations
 
-If you find product useful, please consider making donation
+If you find the product useful, please consider making a donation
 
 Bitcoin: 12XdXRLEMWHRfX76YnRTXwXVZmNA7qU5en
