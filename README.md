@@ -82,7 +82,7 @@ apt-get install imagemagick
 
 ### Preparing website for deployment
 Do the folowing on you local machine
-####Clone preject repository
+####Clone project repository
 ``` sh
 git clone https://github.com/danii1/coinstore
 ```
