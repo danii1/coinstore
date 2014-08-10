@@ -101,7 +101,7 @@ mup deploy
 If you get any errors during deployment, you can check logs by running _mup logs_. Refer to [Meteor Up readme](https://github.com/arunoda/meteor-up) for full info.
 
 ### Grant privileges for writing
-There few last steps need to be done, you'll need to grant writing privileges for _meteoruser_, so you can upload images and other files to server.
+There few last steps need to be done on server: grant writing privileges for _meteoruser_, so you can upload images and other files to server.
 ``` sh
 # your website will be located in /opt/appName(you set appName in mup.json) 
 cd /opt/coinstore
@@ -111,7 +111,11 @@ chown meteoruser:meteoruser cfs
 # change owner for uploads folder(use your storageDir from settings.json)
 chown -R meteoruser:meteoruser /opt/coinstore_uploads
 ```
-That's all, after this you should be able to open your website and test it. In case of problems check `/var/logs/upstart/appName.log` for errors
+That's all, after this you should be able to open your website and test it. In case of problems check `/var/logs/upstart/appName.log` for errors.
+
+### Further deployments
+All further deployments(if you updating to the latest version, or customizing your website ) should require only running 
+`mup deploy` without any additional steps.
 
 ## Donations
 
