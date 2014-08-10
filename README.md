@@ -144,4 +144,4 @@ where `yourAddress` is your website address. First url will be used to redirect 
 
 If you find the product useful, please consider making a donation
 
-Bitcoin: 12XdXRLEMWHRfX76YnRTXwXVZmNA7qU5en
+Bitcoin: [12XdXRLEMWHRfX76YnRTXwXVZmNA7qU5en](bitcoin:12XdXRLEMWHRfX76YnRTXwXVZmNA7qU5en)
