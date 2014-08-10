@@ -17,6 +17,7 @@ CoinStore is a lightweight eCommerce platform with cryptocurrency support. It al
     - [Deployment](#deployment)
     - [Grant privileges for writing](#grant-privileges-for-writing)
     - [Further deployments](#further-deployments)
+- [Website configuration](#website-configuration)
 - [Payment gateway configuration](#payment-gateway-configuration)
     - [C-CEX](#c-cex)
 - [Donations](#donations)
@@ -64,7 +65,7 @@ meteor --settings settings.json
 ```
 
 ## Deploying to server
-This guide focuses on minimal single server setup which is appropriate to small scale webstore, it's short, and takes only 5-10 minutes deploy website. Scalability, replication, backups, load balancing are out of the scope of this article. Guide should work for any Debian/Ubuntu 12.04 or higher distributions.
+This guide focuses on minimal single server setup which is appropriate for small scale webstore, it's short, and takes about 10-15 minutes to deploy website. Scalability, replication, backups, load balancing are out of the scope of this article. Guide should work for any Debian/Ubuntu 12.04 or higher distributions.
 
 ### Server requirements
 You will need at least 512MB RAM on server, other characteristics is less important, but having faster CPU will help if you planning to host large site, large disk space come in handy if you are selling digital items such as music, ebooks, games and hosting them on the same server. If you need recommendation on chosing VPS providers, I had good experience with [Linode](https://www.linode.com/?r=cb553d9cb7d8dd8f836c748b9f5c690c3f549bbe) and [Digital Ocean](https://www.digitalocean.com/?refcode=7679e1b32f02), both are great and have competitive pricing.
@@ -129,6 +130,16 @@ That's all, after this you should be able to open your website and test it. In c
 ### Further deployments
 All further deployments(if you updating to the latest version, or customizing your website ) should require only running 
 `mup deploy` without any additional steps.
+
+## Website configuration
+There are few settings that allows you to change website appearance and some important options such as your merchant id or where files will be stored. Template for settings is located in `settings-example.json`, contents of this file should be copied to `settings.json` and edited there. Currently following params are avaiable, most of them are self explanatory:
+
+- `storeName` - name of your store, this name will be displayed on the top and few other places
+- `itemsInRow` - number of items in a row displayed on the frontpage, valid values are 2, 3, 4, 6. Optimal numbers are probably 3 and 4. You can set 2 if you have a few items to sell.
+- `storageDir` - files uploaded from admin interface will be stored in this directory, user that is used to launch website should have write and read access to this directory
+- `adminUser` - administrator email and password, this credentials will be used to create admin user for new installations. You should change this to your email and use strong password. You can change password later through interface.
+- `merchantId` - set this param to your merchant id obtained from [C-CEX](https://c-cex.com/?rf=278C17E805357FAD)
+
 
 ## Payment gateway configuration
 Currenly only one gateway for accepting cryptocurrencies is supported.
