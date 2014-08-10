@@ -17,6 +17,8 @@ CoinStore is a lightweight eCommerce platform with cryptocurrency support. It al
     - [Deployment](#deployment)
     - [Grant privileges for writing](#grant-privileges-for-writing)
     - [Further deployments](#further-deployments)
+- [Payment gateway configuration](#payment-gateway-configuration)
+    - [C-CEX](#c-cex)
 - [Donations](#donations)
 
 ## Running locally
@@ -96,7 +98,7 @@ mkdir ~/coinstore-deployment
 cd ~/coinstore-deployment
 mup init
 ```
-This commands create directory and generate 2 files: settings.json - settings of your website(it's empty, you should copy contents of settings-example.json to this file and edit as you need: set website name, merchantId, etc); mup.json - deployment parameters(you should set server, username, password or ssh key and some other params). You should ensure that param setupMongo set to false(we installed newer mongo version previously and should skip this step in deployment script):
+This commands create directory and generate 2 files: settings.json - settings of your website(it's empty, you should copy contents of settings-example.json to this file and edit as you need: set website name, merchantId, etc); mup.json - deployment parameters(you should set server, username, password or ssh key and some other params). Ensure that param setupMongo set to false(we installed newer mongo version previously and should skip this step in deployment script):
 ``` json
 "setupMongo": false
 ```
@@ -127,6 +129,16 @@ That's all, after this you should be able to open your website and test it. In c
 ### Further deployments
 All further deployments(if you updating to the latest version, or customizing your website ) should require only running 
 `mup deploy` without any additional steps.
+
+## Payment gateway configuration
+Currenly only one gateway for accepting cryptocurrencies is supported.
+### C-CEX
+You should be registered on [C-CEX](https://c-cex.com/?rf=278C17E805357FAD). Login to your profile and switch to MERCHANT API tab, you'll need to set 2 urls:
+- Return url: `http://yourAddress/purchase`
+- Secret url: `http://yourAddress/purchaseComplete`
+
+where `yourAddress` is your website address. First url will be used to redirect user after purchase, second to transfer data about purchase.
+
 
 ## Donations
 
