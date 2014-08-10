@@ -5,7 +5,18 @@ CoinStore is a lightweight eCommerce platform with cryptocurrency support. It al
 
 **Table of Contents**
 - [Running locally](#running-locally)
+    - [Install Meteor and Meteorite](#install-meteor-and-meteorite)
+    - [Install ImageMagick](#install-imagemagick)
+    - [Clone project repository](#clone-project-repository)
+    - [Edit website settings](#edit-website-settings)
+    - [Launch website locally](#launch-website-locally)
 - [Deploying to server](#deploying-to-server)
+    - [Server requirements](#server-requirements)
+    - [Preparing server for deployment](#preparing-server-for-deployment)
+    - [Preparing website for deployment](#preparing-website-for-deployment)
+    - [Deployment](#deployment)
+    - [Grant privileges for writing](#grant-privileges-for-writing)
+    - [Further deployments](#further-deployments)
 - [Donations](#donations)
 
 ## Running locally
@@ -15,7 +26,7 @@ This guide will allow you to run and test web store locally. Currently, followin
 
 If you have Windows operating system, consider installing Linux either on virtual machine or side by side with Windows. If you don't have experience in Linux distributions, I strongly recommend [Ubuntu](http://www.ubuntu.com/download/desktop) for easier installation.
 
-### Install [Meteor](http://docs.meteor.com/#quickstart) and [Meteorite](https://github.com/oortcloud/meteorite/#installing-meteorite) first:
+### Install Meteor and Meteorite
 
 ``` sh
 curl https://install.meteor.com | /bin/sh
@@ -32,7 +43,7 @@ Mac OS X:
 brew install imagemagick
 ```
 
-###Clone preject repository
+###Clone project repository
 ``` sh
 git clone https://github.com/danii1/coinstore
 ```
