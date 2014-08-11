@@ -136,9 +136,9 @@ There are few settings that allows you to change website appearance and some imp
 
 - `storeName` - name of your store, this name will be displayed on the top and few other places
 - `itemsInRow` - number of items in a row displayed on the frontpage, valid values are 2, 3, 4, 6. Optimal numbers are probably 3 and 4. You can set 2 if you have a few items to sell.
-- `storageDir` - files uploaded from admin interface will be stored in this directory, user that is used to launch website should have write and read access to this directory
-- `adminUser` - administrator email and password, this credentials will be used to create admin user for new installations. You should change this to your email and use strong password. You can change password later through interface.
-- `merchantId` - set this param to your merchant id obtained from [C-CEX](https://c-cex.com/?rf=278C17E805357FAD)
+- `storageDir` - files uploaded from admin interface will be stored in this directory, user used to launch website should have write and read access to this directory
+- `adminUser` - administrator email and password, this credentials will be used to create admin user for new installations. You should change this to your email and set a strong password, password can be changed later through interface.
+- `merchantId` - set this param to your merchant id obtained from [C-CEX](https://c-cex.com/?rf=278C17E805357FAD).
 
 
 ## Payment gateway configuration
