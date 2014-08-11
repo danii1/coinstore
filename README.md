@@ -53,7 +53,7 @@ git clone https://github.com/danii1/coinstore
 _Git is required for this step, refer to http://git-scm.com/book/en/Getting-Started-Installing-Git if it's not installed on your system_
 
 ###Edit website settings
-Copy settings example into the new file and change what you need(store name, merchant id, etc)
+Copy settings example into the new file and change what you need, refer to [website configuration section](#website-configuration)
 ``` sh
 cd coinstore
 cp settings-example.json settings.json 
@@ -99,7 +99,7 @@ mkdir ~/coinstore-deployment
 cd ~/coinstore-deployment
 mup init
 ```
-This commands create directory and generate 2 files: settings.json - settings of your website(it's empty, you should copy contents of settings-example.json to this file and edit as you need: set website name, merchantId, etc); mup.json - deployment parameters(you should set server, username, password or ssh key and some other params). Ensure that param setupMongo set to false(we installed newer mongo version previously and should skip this step in deployment script):
+This commands create directory and generate 2 files: settings.json - settings of your website(it's empty, you should copy contents of settings-example.json to this file, refer to [website configuration section](#website-configuration) for details); mup.json - deployment parameters(you should set server, username, password or ssh key and some other params). Ensure that param setupMongo set to false(we installed newer mongo version previously and should skip this step in deployment script):
 ``` json
 "setupMongo": false
 ```
