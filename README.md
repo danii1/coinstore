@@ -56,7 +56,7 @@ _Git is required for this step, refer to http://git-scm.com/book/en/Getting-Star
 Copy settings example into the new file and change what you need, refer to website configuration section
 ``` sh
 cd coinstore
-cp settings-example.json settings.json 
+cp settings-example.json settings.json
 ```
 ###Launch website locally
 Now launch meteor with your settings, website should become available on http://localhost:3000
@@ -73,11 +73,11 @@ You will need at least 512MB RAM on server, other characteristics is less import
 ### Preparing server for deployment
 Login to server and execute following commands:
 ``` sh
-# install mongodb from 2.5.x branch, as 2.4.x contains bug that affects CoinStore
+# install mongodb from 2.6.x branch, as 2.4.x contains bug that affects CoinStore
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/10gen.list
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
 apt-get update -y
-apt-get install mongodb-10gen-unstable
+apt-get install mongodb-org
 
 # install ImageMagick
 apt-get install imagemagick
@@ -117,7 +117,7 @@ If you get any errors during deployment, you can check logs by running _mup logs
 ### Grant privileges for writing
 There few last steps need to be done on server: grant writing privileges for _meteoruser_, so you can upload images and other files to server.
 ``` sh
-# your website will be located in /opt/appName(you set appName in mup.json) 
+# your website will be located in /opt/appName(you set appName in mup.json)
 cd /opt/coinstore
 mkdir cfs
 chown meteoruser:meteoruser cfs
@@ -125,10 +125,10 @@ chown meteoruser:meteoruser cfs
 # change owner for uploads folder(use your storageDir from settings.json)
 chown -R meteoruser:meteoruser /opt/coinstore_uploads
 ```
-That's all, after this you should be able to open your website and test it. In case of problems check `/var/logs/upstart/appName.log` for errors.
+That's all, after this you should be able to open your website and test it. In case of problems check `/var/log/upstart/appName.log` for errors.
 
 ### Further deployments
-All further deployments(if you updating to the latest version, or customizing your website ) should require only running 
+All further deployments(if you updating to the latest version, or customizing your website ) should require only running
 `mup deploy` without any additional steps.
 
 ## Website configuration
