@@ -1,3 +1,28 @@
+// sticky footer
+@footerSize: 60px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: @footerSize + 10;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: @footerSize;
+  background-color: #f5f5f5;
+
+  font-size: @font-size-small;
+
+  .container .text-muted {
+    margin: 12px 0;
+  }
+}
+
 // main styles
 
 .button-with-icon i {

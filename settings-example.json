@@ -3,6 +3,9 @@
     "storeName": "CoinStore",
     "itemsInRow": 4,
     "storageDir": "/opt/coinstore_uploads",
+    "footer": {
+      "copyright": "2014, Company Name"
+    },
     "ga": {
       "id": ""
     }
