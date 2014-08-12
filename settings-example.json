@@ -2,7 +2,10 @@
   "public": {
     "storeName": "CoinStore",
     "itemsInRow": 4,
-    "storageDir": "/opt/coinstore_uploads"
+    "storageDir": "/opt/coinstore_uploads",
+    "ga": {
+      "id": ""
+    }
   },
   "startup": {
     "adminUser": {

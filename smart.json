@@ -9,6 +9,7 @@
     "roles": {},
     "cron": {},
     "collectionFS": {},
-    "smart-publish": {}
+    "smart-publish": {},
+    "iron-router-ga": {}
   }
 }

@@ -18,6 +18,11 @@ Router.onBeforeAction(mustBeAdmin, {only: ['adminItems', 'adminItem', 'adminItem
 Router.onBeforeAction(mustBeSignedIn, {only: ['purchases', 'purchase']})
 Router.onBeforeAction('loading', {except: ['purchaseReturnUrl', 'purchaseComplete']} )
 
+if Meteor.settings.public.ga.id? and Meteor.settings.public.ga.id != ''
+  Router.configure({
+      trackPageView: true
+  })
+
 Router.map ->
   @route('storefront', {
     path: '/'

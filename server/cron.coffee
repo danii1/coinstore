@@ -1,5 +1,6 @@
 expireUnpaidPurchases = () ->
   #expire unpaid purchases older than 4 hours
+  console.log 'expireUnpaidPurchases called'
   expirationTime = new Date((new Date()) - 1000*60*60*4)
   expiredPurchases = Purchases.find({
     created_at: { $lt: expirationTime }
@@ -7,6 +8,7 @@ expireUnpaidPurchases = () ->
   },{ fields: {_id: true} })
 
   expiredPurchases.forEach (purchase) ->
+    console.log 'cancelPurchase called for expired purchase', purchase._id
     Meteor.call 'cancelPurchase', purchase._id, (err, result) ->
       console.log err if err?
 

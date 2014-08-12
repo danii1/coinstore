@@ -11,7 +11,8 @@
       "roles": {},
       "cron": {},
       "collectionFS": {},
-      "smart-publish": {}
+      "smart-publish": {},
+      "iron-router-ga": {}
     },
     "packages": {
       "less-bootstrap-3": {
@@ -36,8 +37,8 @@
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.3",
-        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
+        "tag": "v0.3.4",
+        "commit": "9f006ee48d869877d90d54ac75b54550a587df8f"
       },
       "autoform": {
         "git": "https://github.com/aldeed/meteor-autoform.git",
@@ -46,8 +47,8 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.10",
-        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
+        "tag": "v1.2.11",
+        "commit": "2d7dc91848ec874d3a0852c77f462d0fae749de5"
       },
       "cron": {
         "git": "https://github.com/alexsuslov/Meteor.cron.git",
@@ -64,6 +65,11 @@
         "tag": "v0.1.4",
         "commit": "9b0279927fa4f8042f8f56ba475ce9737ceaa8cf"
       },
+      "iron-router-ga": {
+        "git": "https://github.com/reywood/meteor-iron-router-ga.git",
+        "tag": "v0.2.5",
+        "commit": "ede54c4633f9a54fddd5c431202a88284df2a932"
+      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
@@ -71,13 +77,13 @@
       },
       "simple-schema": {
         "git": "https://github.com/aldeed/meteor-simple-schema.git",
-        "tag": "v0.6.0",
-        "commit": "418ec496612fb2afc853e342f0d2269b6674a2fe"
+        "tag": "v0.7.0",
+        "commit": "77d267aec4ba8a70f677e5d9ef9fb91fb0e3f0f6"
       },
       "collection2": {
         "git": "https://github.com/aldeed/meteor-collection2.git",
-        "tag": "v0.4.4",
-        "commit": "c70deb36e10f63238b884529eea1e38cf0789903"
+        "tag": "v0.4.6",
+        "commit": "80554182486be0d8e74f7ed02194a5649d712e27"
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
@@ -106,13 +112,13 @@
       },
       "cfs-access-point": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-access-point.git",
-        "tag": "v0.0.33",
-        "commit": "9c0660e42b494ac3c8eb811942fa9fb04c4adec7"
+        "tag": "v0.0.36",
+        "commit": "faf45b12b0e68a8e95d040898c4dbca32c3b515a"
       },
       "cfs-worker": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-worker.git",
-        "tag": "v0.0.16",
-        "commit": "172abbf679a9c9ce65d5cac7b51f23967aff94f7"
+        "tag": "v0.0.17",
+        "commit": "654fa7c552f558a293429da790b016af6f1c4fc3"
       },
       "cfs-upload-http": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-upload-http.git",
