@@ -1,4 +1,9 @@
 Template.item.inStock = ->
+  # skip stock check if user pressed buy botton and being redirected to merchant
+  purchaseLink = $('button.purchaseItem')
+  if purchaseLink? and purchaseLink.text() == 'Redirecting to merchant provider...'
+    return true
+  # test if we have enough items
   @quantity > 0
 
 Template.item.rendered = ->
