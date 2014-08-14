@@ -6,6 +6,13 @@
       {{else}}
         <img class="img-responsive" src="/images/empty_image.png">
       {{/if}}
+      <div class="thumbs">
+        <div class="thumbs-collection">
+          {{#each additionalImages}}
+            <a class="image-link" href="{{this.url store='fullImages' auth=false}}"><img src="{{this.url store='thumbImages' auth=false}}"></a>
+          {{/each}}
+        </div>
+      </div>
     </div>
     <div class="col-md-8">
       <h1>{{title}}</h1>

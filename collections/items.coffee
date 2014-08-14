@@ -11,6 +11,11 @@
     titleImageUrl:
       type: String
       optional: true
+    additionalImages:
+      type: [FS.File]
+      label: 'Additional images'
+      optional: true
+      blackbox: true
     type:
       type: String
       label: 'Item type'

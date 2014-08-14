@@ -14,6 +14,13 @@ AutoForm.hooks({
           image = Images.insert(titleImage)
           doc.titleImage = image
 
+        files = $('#additionalImages').get(0).files
+        images = []
+        if files.length > 0
+          for file in files
+            images.push Images.insert(file)
+        doc.additionalImages = images
+
         deliveryContent = $('#deliveryContent').get(0).files[0]
         if deliveryContent?
           file = DeliveryContent.insert(deliveryContent)

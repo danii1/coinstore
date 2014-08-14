@@ -1,5 +1,6 @@
 // sticky footer
 @footerSize: 60px;
+@image-width: 400px;
 
 html {
   position: relative;
@@ -46,6 +47,25 @@ body {
     color: @label-success-bg;
     font-size: @font-size-large;
   }
+
+  .thumbs {
+    margin: 5px 0;
+    overflow: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: @image-width;
+
+    .thumbs-collection {
+      width: 20000px;
+
+      a {
+        float: left;
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
 }
 
 
@@ -73,6 +93,10 @@ body {
 // admin styles
 textarea.description {
   width: 100%;
+}
+
+.additional-images td {
+  padding: 5px 10px 5px 0px;
 }
 
 .loading {

@@ -7,7 +7,18 @@ Template.item.inStock = ->
   @quantity > 0
 
 Template.item.rendered = ->
-  $('.image-link').magnificPopup({type:'image'})
+  # adjust thumbs container width
+  imagesNumber = $('.thumbs a').length
+  width = imagesNumber * 105
+  $('.thumbs-collection').width( width.toString())
+
+  # init gallery
+  $('.image-link').magnificPopup({
+    type:'image'
+    gallery: {
+      enabled: true
+    }
+  })
 
 Template.item.events({
   'click button.purchaseItem': (event) ->

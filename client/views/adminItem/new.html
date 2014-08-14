@@ -7,6 +7,20 @@
           {{> afFieldLabel name='titleImage'}}
           <input type="file" id="titleImage">
         </div>
+        <div class="form-group">
+          {{> afFieldLabel name='additionalImages'}}
+          <input type="file" id="additionalImages" multiple>
+          <table class="additional-images">
+            <tbody>
+              {{#each additionalImages}}
+                <tr>
+                  <td><a class="image-link" href="{{this.url store='fullImages' auth=false}}">{{this.name}}</a></td>
+                  <td><button class="btn btn-danger deleteImage">Delete</button></td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
         {{> afQuickField name='type' options='allowed'}}
         {{> afQuickField name='description' rows=10}}
         {{> afQuickField name='price' step=0.00000001}}

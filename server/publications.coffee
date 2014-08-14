@@ -11,6 +11,13 @@ Meteor.smartPublish 'items', ->
   return Items.find(collectionFilter, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, price: 1, currency: 1}})
 
 Meteor.smartPublish 'itemDetails', (itemId) ->
+  this.addDependency('items', 'additionalImages', (item) ->
+    if item.additionalImages? and item.additionalImages.length > 0
+      images = item.additionalImages.map (image) -> image._id
+      return [ Images.find(_id: { $in: images }) ]
+    return []
+  )
+
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
     this.addDependency('items', 'deliveryContent', (item) ->
       if item.deliveryContent?
@@ -20,7 +27,7 @@ Meteor.smartPublish 'itemDetails', (itemId) ->
 
     return Items.find(itemId)
   else
-    return Items.find(itemId, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, description: 1, price: 1, currency: 1, quantity: 1}})
+    return Items.find(itemId, { fields: {title: 1, titleImage: 1, quantity: 1, type: 1, description: 1, price: 1, currency: 1, quantity: 1, additionalImages: 1}})
 
 Meteor.publish 'users', ->
   if @userId? and Roles.userIsInRole(@userId, ['administrator'])
